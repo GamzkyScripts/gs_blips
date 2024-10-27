@@ -1,6 +1,7 @@
 # Blip Management Script
 
-⭐ Check out our other resources in our [Discord](https://discord.com/invite/sjFP3HrWc3).
+#### ⭐ Check out our other resources in our [Discord](https://discord.com/invite/sjFP3HrWc3).
+#### 📼 Preview video: [Streamable](https://streamable.com/la3460)
 
 ## Features
 
