@@ -1,4 +1,4 @@
-# Blip Management Script
+# Blip Manager: Blips with info popups
 
 #### ⭐ Check out our other resources in our [Discord](https://discord.com/invite/sjFP3HrWc3).
 #### 📼 Preview video: [Streamable](https://streamable.com/la3460)
@@ -7,7 +7,7 @@
 
 - Create blips with properties such as coordinates, sprite, label, and more.
 - Update and delete existing blips.
-- Handle blip overlays that provide additional information when hovering over blips.
+- Handle blip overlays that provide additional information when hovering over or selecting blips.
 - Automatically clean up blips when the resource is stopped.
 
 ## Installation
