@@ -1,6 +1,6 @@
 # Blip Manager: Blips with info popups
 
-#### ⭐ Check out our other resources in our [Discord](https://discord.com/invite/sjFP3HrWc3).
+#### ⭐ Check out our other resources on [Tebex](https://gamzky-scripts.tebex.io/) or in our [Discord](https://discord.com/invite/sjFP3HrWc3).
 #### 📼 Preview video: [Streamable](https://streamable.com/la3460)
 
 ## Features
