@@ -85,7 +85,7 @@ blip.delete()
 ```
 
 ```lua
--- Delete a blip created with the CreateBlip method
+-- Delete a blip created with the CreateBlip export
 exports.gs_blips:DeleteBlip(blipHandle)
 
 -- Example: Get a blip object
