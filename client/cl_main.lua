@@ -4,6 +4,11 @@ local currentBlip = nil
 local isOverlayOpen = false
 local blipIndex = 0
 
+local blipCategories = {
+    { id = 'BLIP_PROPCAT',  index = 10, label = nil },
+    { id = 'BLIP_APARTCAT', index = 11, label = nil },
+}
+
 function CreateBlip(params)
     local invokingResource = GetInvokingResource()
 
@@ -38,6 +43,16 @@ function CreateBlip(params)
     SetBlipAsShortRange(blipHandle, true)
     SetBlipHighDetail(blipHandle, true)
     SetBlipAsMissionCreatorBlip(blipHandle, true)
+
+    -- Set blip category
+    if params.category then
+        local categoryIndex = AssignLabelToCategory(params.category)
+        if categoryIndex then
+            SetBlipCategory(blipHandle, categoryIndex)
+        else
+            print(('^1[%s] Error while creating blip: No available category for label %s'):format(invokingResource, params.category))
+        end
+    end
 
     blipIndex = blipIndex + 1
     local blipTextEntry = 'GS_BLIP_' .. blipIndex
@@ -109,6 +124,23 @@ function ParseCoords(input)
     end
 
     return input
+end
+
+function AssignLabelToCategory(label)
+    for _, category in ipairs(blipCategories) do
+        if (category.label == label) then
+            -- If the label already matches, use this category
+            return category.index
+        elseif (category.label == nil) then
+            -- If the category is available (no label assigned), use it and set the label
+            category.label = label
+            AddTextEntry(category.id, label)
+            return category.index
+        end
+    end
+
+    -- No available category
+    return nil
 end
 
 CreateThread(function()

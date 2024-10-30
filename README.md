@@ -4,14 +4,13 @@
 #### 📼 Preview video: [Streamable](https://streamable.com/la3460)
 
 ## Features
-
-- Create blips with properties such as coordinates, sprite, label, and more.
-- Update and delete existing blips.
-- Handle blip overlays that provide additional information when hovering over or selecting blips.
-- Automatically clean up blips when the resource is stopped.
+-   Create blips with properties such as coordinates, sprite, label, and more.
+-   Update and delete existing blips.
+-   Handle blip overlays that provide additional information when hovering over or selecting blips.
+-   Automatically clean up blips when the resource is stopped.
+-   Assign blips to categories to group them together. (Max 2 unique categories, as per limit of GTA 5)
 
 ## Installation
-
 1. Place the script in your resource directory.
 2. Ensure your resource is started in the server configuration.
 3. Use the provided exports to interact with the blip system in your other scripts.
@@ -21,31 +20,29 @@
 ### `exports.gs_blips:CreateBlip(params)`
 Creates a new blip on the map.
 #### Parameters
-- `params`: A table containing:
-  - `coords` (required): Coordinates for the blip. Preferably a vector3, but any coordinate type will work.
-  - `sprite` (required): The sprite ID for the blip. See [here](https://docs.fivem.net/game-references/blips/) for a list of sprites.
-  - `label` (required): The label for the blip.
-  - `scale` (optional): The scale of the blip (default is `1.0`).
-  - `color` (optional): The color of the blip (default is `0`). See [here](https://docs.fivem.net/docs/game-references/blips/#blip-colors) for a list of colors.
-  - `data` (optional): A table containing additional data for the blip.
-    - `title` (optional): The title of the blip.
-    - `description` (optional): The description of the blip.
-  - `display` (optional): Display option for the blip (default is `4`).
+-   `params`: A table containing:
+    -   `coords` (required): Coordinates for the blip. Preferably a vector3, but any coordinate type will work.
+    -   `sprite` (required): The sprite ID for the blip. See [here](https://docs.fivem.net/game-references/blips/) for a list of sprites.
+    -   `label` (required): The label for the blip.
+    -   `scale` (optional): The scale of the blip (default is `1.0`).
+    -   `color` (optional): The color of the blip (default is `0`). See [here](https://docs.fivem.net/docs/game-references/blips/#blip-colors) for a list of colors.
+    -   `category` (optional): The category label of the blip.
+    -   `data` (optional): A table containing additional data for the blip.
+        -   `title` (optional): The title of the blip.
+        -   `description` (optional): The description of the blip.
+    -   `display` (optional): Display option for the blip (default is `4`).
 
 #### Returns
-
 A blip object with methods to modify or delete the blip.
 
 ### Methods of Blip Object
-
-- `setData(newData)`: Updates the data associated with the blip.
-- `setTitle(title)`: Sets the title of the blip.
-- `setDescription(description)`: Sets the description of the blip.
-- `setDisplayHandler(fn)`: Sets a custom display function for the blip.
-- `delete()`: Deletes the blip from the map.
+-   `setData(newData)`: Updates the data associated with the blip.
+-   `setTitle(title)`: Sets the title of the blip.
+-   `setDescription(description)`: Sets the description of the blip.
+-   `setDisplayHandler(fn)`: Sets a custom display function for the blip.
+-   `delete()`: Deletes the blip from the map.
 
 ## Usage Examples
-
 ```lua
 -- Example blip with default properties
 exports.gs_blips:CreateBlip({
@@ -82,6 +79,24 @@ end)
 
 -- Example: Delete the blip
 blip.delete()
+```
+
+```lua
+-- Example: Create a blip with a category
+for i = 1, 10 do
+	exports.gs_blips:CreateBlip({
+		coords = vector3(i * 50, i * 50, i * 50),
+		sprite = 1,
+		scale = 1.0,
+		color = 0,
+		label = 'Example blip: #' .. i,
+		category = 'Example category',
+		data = {
+			title = 'Example blip',
+			description = 'This blip is grouped under the "Example category" category.',
+		},
+	})
+end
 ```
 
 ```lua

@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'Gamzky'
 description 'Helper script to easily create and manage blips'
-version '1.0.0'
+version '1.1.0'
 
 ui_page 'ui/index.html'
 
