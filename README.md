@@ -82,7 +82,7 @@ blip.delete()
 ```
 
 ```lua
--- Example: Create a blip with a category
+-- Example: Create blips with a category
 for i = 1, 10 do
 	exports.gs_blips:CreateBlip({
 		coords = vector3(i * 50, i * 50, i * 50),
